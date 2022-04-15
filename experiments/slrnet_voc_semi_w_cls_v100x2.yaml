@@ -1,0 +1,37 @@
+misc:
+  log_dir: 'outputs'
+  log_freq: 100
+  verbose: 1
+  resume: 0
+  resume_checkpoint_path: ''
+  visualize_samples: ''
+train:
+  lr: 0.0005
+  num_epochs: 30
+  pretrain_epochs: 5
+  num_warmup_steps: 0
+  num_decay_steps: 0
+  decay_rate: 1
+  batch_size: 8
+  num_workers: 8
+  weight_decay: 0.0005
+  loss_coeff: [0.5, 2.0, 2.0, 0.5]
+dataset:
+  name: 'voc_semi'
+  root: '/root/datasets/VOC+SBD/'
+  crop_size: 448
+  scale: [0.9, 1.0]
+  oversample_rate: 3
+model:
+  name: 'slrnet_semi'
+  backbone: 'resnet38'
+  pretrained: '../pretrained/ilsvrc-cls_rna-a1_cls1000_ep-0001.pth'
+  num_classes: 21
+  scale_factor: 0.5
+  pamr_iter: 10
+  cutoff_top: 0.6
+  cutoff_low: 0.2
+  temperature: 1.0
+  pamr_dilations: [1, 2, 4, 8, 12, 24]
+test:
+  scales: [1, 1.5, 2.0, 0.5, 0.75]

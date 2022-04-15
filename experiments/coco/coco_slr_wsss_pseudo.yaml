@@ -1,0 +1,39 @@
+misc:
+  log_dir: 'outputs'
+  log_freq: 500
+  verbose: 1
+  resume: 0
+  resume_checkpoint_path: ''
+  visualize_samples: ''
+train:
+  lr: 0.0005
+  num_samples: 40000
+  num_epochs: 20
+  pretrain_epochs: 5
+  num_warmup_steps: 0
+  num_decay_steps: 0
+  decay_rate: 1
+  batch_size: 6
+  num_workers: 8
+  weight_decay: 0.0005
+  loss_coeff: [1.0, 4.0, 4.0, 1.0]
+dataset:
+  name: 'coco'
+  root: 'data/COCO'
+  crop_size: 321
+  scale: [0.9, 1.0]
+model:
+  name: 'slrnet_coco_pseudo'
+  backbone: 'resnet38'
+  pretrained: 'pretrained_models/resnet38_ilsvrc-cls_rna-a1_cls1000_ep-0001.pth'
+  num_classes: 81
+  scale_factor: 0.5
+  pamr_iter: 10
+  cutoff_top: 0.5
+  cutoff_low: 0.1
+  temperature: 1.0
+  pamr_dilations: [1, 2, 4, 8, 12, 24]
+  pos_weight: 10.0
+  class_weights: [0.0580,0.9439,0.3090,1.1062,1.1484,1.0208,0.9967,0.6532,1.0895,0.9073,1.3032,1.3549,1.7261,0.6848,0.9237,0.7763,0.7619,1.1403,1.1233,1.1372,1.1843,1.1465,1.0259,1.0586,0.6450,0.9943,0.5161,1.0647,1.2419,1.4560,1.3231,1.4945,0.8353,1.4468,1.2007,1.1670,1.3137,1.3341,1.2179,0.3373,1.1479,0.3139,0.7700,0.6261,0.7421,0.3778,0.9794,1.0642,1.0816,1.0154,1.0580,1.1336,1.5824,1.0513,1.4388,0.9719,0.2687,0.7155,0.6840,0.8768,0.2607,0.8369,0.6103,0.7912,1.1343,1.0577,0.9783,0.7671,1.1942,0.7544,2.6064,0.4852,0.9054,0.5438,0.7720,0.8335,1.4894,1.1677,2.2971,1.4464]
+test:
+  scales: [1, 0.5, 0.75, 1.5, 2.0]
