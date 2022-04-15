@@ -7,7 +7,8 @@ Weakly and Semi-Supervised Semantic Segmentation](http://dx.doi.org/10.1007/s112
 
 This repository contains the code for SLRNet, which is a unified framework that can be well generalized to learn a label-efficient segmentation model in various weakly and semi-supervised settings.
 The key component of our approach is the Cross-View Low-Rank (CVLR) module that decompose the multi-view representations via the collective matrix factorization.
-We provide scripts for Pascal VOC, COCO and L2ID datasets.
+We provide scripts for Pascal VOC and COCO datasets.
+Moreover, the SLRNet ranked 2nd in the WSSS Track of CVPR 2021 [Learning from Limited and Imperfect Data (L2ID) Challenge](https://l2id.github.io/).
 
 ## Setup
 0. **Minimum requirements.** 
